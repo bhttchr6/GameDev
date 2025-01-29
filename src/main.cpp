@@ -41,8 +41,8 @@ float minDistance(T object1, T object2)
 sf::Vector2f newPos(sf::CircleShape &object1)
 {
     sf::Vector2f POS0 = object1.getPosition();
-    float X_new = POS0.x + 10.0;
-    float Y_new = POS0.y + 0.0;
+    float X_new = POS0.x + 0.0;
+    float Y_new = POS0.y + 5.0;
 
     return sf::Vector2f(X_new, Y_new);
 
@@ -54,8 +54,9 @@ int main(int argc, char* argv[])
     
     // circle shape
     sf::CircleShape circle(5.0f);
-    circle.setPosition(sf::Vector2f(0, 0));
-    circle.move(newPos(circle));
+    circle.setPosition(sf::Vector2f(10, 0));
+    
+    
 
     // rectangle shape
     sf::RectangleShape rectangle;
@@ -65,6 +66,8 @@ int main(int argc, char* argv[])
     circle.setFillColor(sf::Color::Green);
     rectangle.setFillColor(sf::Color::Red);
 
+    
+    
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -73,12 +76,18 @@ int main(int argc, char* argv[])
                 window.close();
         }
 
+        //Move the circle continuously
+        circle.setPosition(newPos(circle));
         window.clear();
         window.draw(circle);
         window.draw(rectangle);
         window.display();
+
+        sf::sleep(sf::milliseconds(100)); // Slow down movement for visibility
         
+    
     }
+    
     
     /*
     circle ball(point2D(), 2.0);
