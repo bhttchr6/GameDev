@@ -12,6 +12,9 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
+# Add the include directory to the compiler's search paths
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
 add_executable(main src/main.cpp)
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)
