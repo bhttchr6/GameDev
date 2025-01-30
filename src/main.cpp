@@ -1,52 +1,7 @@
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
+#include "utils.hpp"
 
-struct point2D
-{
-    float x;
-    float y;
-    point2D(): x{0.0}, y{0.0} {}
-    point2D(float xin, float yin): x{xin}, y{yin}{}
-};
-
-struct circle
-{
-    point2D center;
-    float radius;
-
-    circle(point2D point, float r): center{point}, radius{r}{}
-};
-
-struct rectangle
-{
-    point2D topLeft;
-    point2D topRight;
-    point2D bottomLeft;
-    point2D bottomRight;
-
-};
-
-/*
-The function distance should be geenral enough to take two rectangles or two circles or circle and rectangle
-
-template < typename T>
-float minDistance(T object1, T object2)
-{
-    // find the point that is closest to the circle
-    for(int i = 0; i < )
-
-};
-*/
-
-sf::Vector2f newPos(sf::CircleShape &object1)
-{
-    sf::Vector2f POS0 = object1.getPosition();
-    float X_new = POS0.x + 0.0;
-    float Y_new = POS0.y + 5.0;
-
-    return sf::Vector2f(X_new, Y_new);
-
-}
 
 int main(int argc, char* argv[])
 {
@@ -60,14 +15,14 @@ int main(int argc, char* argv[])
 
     // rectangle shape
     sf::RectangleShape rectangle;
-    rectangle.setSize(sf::Vector2f(100, 50));
-    rectangle.setPosition(sf::Vector2f(0, 50));
+    rectangle.setSize(sf::Vector2f(300, 50));
+    rectangle.setPosition(sf::Vector2f(0, 400));
 
     circle.setFillColor(sf::Color::Green);
     rectangle.setFillColor(sf::Color::Red);
 
     
-    
+    int dir = 1;
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -77,7 +32,13 @@ int main(int argc, char* argv[])
         }
 
         //Move the circle continuously
-        circle.setPosition(newPos(circle));
+        circle.setPosition(newPos(circle, dir));
+        if(collison(circle, rectangle))
+        {
+            //throw std::runtime_error("collision detected");
+            dir = - dir;
+
+        }
         window.clear();
         window.draw(circle);
         window.draw(rectangle);
@@ -89,16 +50,6 @@ int main(int argc, char* argv[])
     }
     
     
-    /*
-    circle ball(point2D(), 2.0);
     
-    rectangle object;
-    object.bottomLeft = point2D(-1.0, 1.0);
-    object.bottomRight = point2D(1.0, 1.0);
-    object.topLeft = point2D(-1.0, 2.0);
-    object.topRight = point2D(1.0, 2.0);
-
-    float minDist = minDistance(ball, object);
-    */
     return 0;
 }
