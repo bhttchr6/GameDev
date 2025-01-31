@@ -1,6 +1,10 @@
 #include <SFML/Graphics.hpp>
 
+class Object
+{
+    // define object shape
 
+};
 
 /*
 The function distance should be geenral enough to take two rectangles or two circles or circle and rectangle
@@ -26,11 +30,13 @@ bool collison(T1 &object1, T2 &object2)
 };
 
 
-sf::Vector2f newPos(sf::CircleShape &object1, int dir)
+sf::Vector2f newPos(sf::CircleShape &object1, int dir, float time)
 {
     sf::Vector2f POS0 = object1.getPosition();
-    float X_new = POS0.x + dir * 5.0;
-    float Y_new = POS0.y + dir * 5.0;
+    float g = 2;
+    float X_new = POS0.x + dir * 0.0;
+    float Y_new = POS0.y + 0.5 *dir * g * time * time;
+
 
     return sf::Vector2f(X_new, Y_new);
 
