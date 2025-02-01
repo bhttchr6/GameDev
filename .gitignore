@@ -5,3 +5,6 @@ cmake_install.cmake
 
 # Binaries
 bin/
+
+#vscode
+.vscode/
