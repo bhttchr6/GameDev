@@ -26,6 +26,7 @@ int main(int argc, char* argv[])
     
     int dir = 1;
     float dt = 0.5;
+    float iniVel = 0.0;
     while (window.isOpen())
     {
         time = time + dt;
@@ -36,11 +37,12 @@ int main(int argc, char* argv[])
         }
         std::cout << time << std::endl;
         //Move the circle continuously
-        circle.setPosition(newPos(circle, dir, time));
+        circle.setPosition(newPos(circle, time, iniVel));
         if(collison(circle, rectangle))
         {
             //throw std::runtime_error("collision detected");
-            dir = - dir;
+            float finalVelocity = GetVelocity(iniVel, time);
+            iniVel = world::e * finalVelocity;
 
         }
         window.clear();

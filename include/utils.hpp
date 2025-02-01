@@ -1,8 +1,9 @@
 #include <SFML/Graphics.hpp>
 
-class Object
+struct world
 {
-    // define object shape
+     static constexpr float accGrav = 1.0;
+     static constexpr float e = 0.5;
 
 };
 
@@ -29,13 +30,17 @@ bool collison(T1 &object1, T2 &object2)
 
 };
 
+float GetVelocity(float initalVelocity, float time)
+{
+    return  initalVelocity + world::accGrav * time;
+};
 
-sf::Vector2f newPos(sf::CircleShape &object1, int dir, float time)
+sf::Vector2f newPos(sf::CircleShape &object1 , float time, float initialVelocity)
 {
     sf::Vector2f POS0 = object1.getPosition();
-    float g = 2;
-    float X_new = POS0.x + dir * 0.0;
-    float Y_new = POS0.y + 0.5 *dir * g * time * time;
+    
+    float X_new = POS0.x + 0.0;
+    float Y_new = POS0.y + initialVelocity * time + 0.5 * world::accGrav * time * time;
 
 
     return sf::Vector2f(X_new, Y_new);
