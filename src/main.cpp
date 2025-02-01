@@ -13,8 +13,6 @@ int main(int argc, char* argv[])
     sf::CircleShape circle(10.0f);
     circle.setPosition(sf::Vector2f(10, 0));
 
-    float time = 0.0;
-    
     // rectangle shape
     sf::RectangleShape rectangle;
     rectangle.setSize(sf::Vector2f(300, 50));
@@ -27,6 +25,9 @@ int main(int argc, char* argv[])
     int dir = 1;
     float dt = 0.5;
     float iniVel = 0.0;
+    float time = 0.0;
+    bool impact = false;
+   
     while (window.isOpen())
     {
         time = time + dt;
@@ -35,14 +36,21 @@ int main(int argc, char* argv[])
             if (event->is<sf::Event::Closed>())
                 window.close();
         }
-        std::cout << time << std::endl;
+        
         //Move the circle continuously
         circle.setPosition(newPos(circle, time, iniVel));
         if(collison(circle, rectangle))
         {
             //throw std::runtime_error("collision detected");
+            impact = true;
+            // get final velocity of ball at time of collision
             float finalVelocity = GetVelocity(iniVel, time);
-            iniVel = world::e * finalVelocity;
+            std::cout << "velocity at collision = " << finalVelocity << std::endl;
+
+            //The initial velocity of ball = -e * final velocity of ball
+            iniVel = -1 * world::e * finalVelocity;
+
+            
 
         }
         window.clear();
