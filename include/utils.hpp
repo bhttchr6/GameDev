@@ -3,7 +3,7 @@
 struct world
 {
      static constexpr float accGrav = 1.0;
-     static constexpr float e = 0.5;
+     static constexpr float e = -0.5;
 
 };
 
