@@ -87,7 +87,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\" \"devel\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -175,69 +175,82 @@ main/fast:
 .PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named sfml-system
+# Target rules for targets named uninstall
 
 # Build rule for target.
-sfml-system: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sfml-system
-.PHONY : sfml-system
+uninstall: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uninstall
+.PHONY : uninstall
 
 # fast build rule for target.
-sfml-system/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/build
-.PHONY : sfml-system/fast
+uninstall/fast:
+	$(MAKE) $(MAKESILENT) -f third/glfw/CMakeFiles/uninstall.dir/build.make third/glfw/CMakeFiles/uninstall.dir/build
+.PHONY : uninstall/fast
 
 #=============================================================================
-# Target rules for targets named sfml-window
+# Target rules for targets named glfw
 
 # Build rule for target.
-sfml-window: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sfml-window
-.PHONY : sfml-window
+glfw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw
+.PHONY : glfw
 
 # fast build rule for target.
-sfml-window/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/build
-.PHONY : sfml-window/fast
+glfw/fast:
+	$(MAKE) $(MAKESILENT) -f third/glfw/src/CMakeFiles/glfw.dir/build.make third/glfw/src/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
 
 #=============================================================================
-# Target rules for targets named sfml-network
+# Target rules for targets named update_mappings
 
 # Build rule for target.
-sfml-network: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sfml-network
-.PHONY : sfml-network
+update_mappings: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 update_mappings
+.PHONY : update_mappings
 
 # fast build rule for target.
-sfml-network/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/build
-.PHONY : sfml-network/fast
+update_mappings/fast:
+	$(MAKE) $(MAKESILENT) -f third/glfw/src/CMakeFiles/update_mappings.dir/build.make third/glfw/src/CMakeFiles/update_mappings.dir/build
+.PHONY : update_mappings/fast
 
 #=============================================================================
-# Target rules for targets named sfml-graphics
+# Target rules for targets named SDL3-static
 
 # Build rule for target.
-sfml-graphics: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sfml-graphics
-.PHONY : sfml-graphics
+SDL3-static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SDL3-static
+.PHONY : SDL3-static
 
 # fast build rule for target.
-sfml-graphics/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build
-.PHONY : sfml-graphics/fast
+SDL3-static/fast:
+	$(MAKE) $(MAKESILENT) -f third/vendored/SDL/CMakeFiles/SDL3-static.dir/build.make third/vendored/SDL/CMakeFiles/SDL3-static.dir/build
+.PHONY : SDL3-static/fast
 
 #=============================================================================
-# Target rules for targets named sfml-audio
+# Target rules for targets named SDL3_test
 
 # Build rule for target.
-sfml-audio: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sfml-audio
-.PHONY : sfml-audio
+SDL3_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SDL3_test
+.PHONY : SDL3_test
 
 # fast build rule for target.
-sfml-audio/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/build
-.PHONY : sfml-audio/fast
+SDL3_test/fast:
+	$(MAKE) $(MAKESILENT) -f third/vendored/SDL/CMakeFiles/SDL3_test.dir/build.make third/vendored/SDL/CMakeFiles/SDL3_test.dir/build
+.PHONY : SDL3_test/fast
+
+#=============================================================================
+# Target rules for targets named SDL_uclibc
+
+# Build rule for target.
+SDL_uclibc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SDL_uclibc
+.PHONY : SDL_uclibc
+
+# fast build rule for target.
+SDL_uclibc/fast:
+	$(MAKE) $(MAKESILENT) -f third/vendored/SDL/CMakeFiles/SDL_uclibc.dir/build.make third/vendored/SDL/CMakeFiles/SDL_uclibc.dir/build
+.PHONY : SDL_uclibc/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -263,6 +276,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/objLoader.o: src/objLoader.cpp.o
+.PHONY : src/objLoader.o
+
+# target to build an object file
+src/objLoader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/objLoader.cpp.o
+.PHONY : src/objLoader.cpp.o
+
+src/objLoader.i: src/objLoader.cpp.i
+.PHONY : src/objLoader.i
+
+# target to preprocess a source file
+src/objLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/objLoader.cpp.i
+.PHONY : src/objLoader.cpp.i
+
+src/objLoader.s: src/objLoader.cpp.s
+.PHONY : src/objLoader.s
+
+# target to generate assembly for a file
+src/objLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/objLoader.cpp.s
+.PHONY : src/objLoader.cpp.s
+
+third/glad/src/glad.o: third/glad/src/glad.c.o
+.PHONY : third/glad/src/glad.o
+
+# target to build an object file
+third/glad/src/glad.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/third/glad/src/glad.c.o
+.PHONY : third/glad/src/glad.c.o
+
+third/glad/src/glad.i: third/glad/src/glad.c.i
+.PHONY : third/glad/src/glad.i
+
+# target to preprocess a source file
+third/glad/src/glad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/third/glad/src/glad.c.i
+.PHONY : third/glad/src/glad.c.i
+
+third/glad/src/glad.s: third/glad/src/glad.c.s
+.PHONY : third/glad/src/glad.s
+
+# target to generate assembly for a file
+third/glad/src/glad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/third/glad/src/glad.c.s
+.PHONY : third/glad/src/glad.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -275,15 +336,22 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... uninstall"
+	@echo "... update_mappings"
+	@echo "... SDL3-static"
+	@echo "... SDL3_test"
+	@echo "... SDL_uclibc"
+	@echo "... glfw"
 	@echo "... main"
-	@echo "... sfml-audio"
-	@echo "... sfml-graphics"
-	@echo "... sfml-network"
-	@echo "... sfml-system"
-	@echo "... sfml-window"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/objLoader.o"
+	@echo "... src/objLoader.i"
+	@echo "... src/objLoader.s"
+	@echo "... third/glad/src/glad.o"
+	@echo "... third/glad/src/glad.i"
+	@echo "... third/glad/src/glad.s"
 .PHONY : help
 
 

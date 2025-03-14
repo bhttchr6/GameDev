@@ -83,34 +83,61 @@ CMakeFiles/main.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anurag/Documents/Projects/GameDev/src/main.cpp -o CMakeFiles/main.dir/src/main.cpp.s
 
+CMakeFiles/main.dir/src/objLoader.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/objLoader.cpp.o: /home/anurag/Documents/Projects/GameDev/src/objLoader.cpp
+CMakeFiles/main.dir/src/objLoader.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anurag/Documents/Projects/GameDev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/objLoader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/objLoader.cpp.o -MF CMakeFiles/main.dir/src/objLoader.cpp.o.d -o CMakeFiles/main.dir/src/objLoader.cpp.o -c /home/anurag/Documents/Projects/GameDev/src/objLoader.cpp
+
+CMakeFiles/main.dir/src/objLoader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/objLoader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anurag/Documents/Projects/GameDev/src/objLoader.cpp > CMakeFiles/main.dir/src/objLoader.cpp.i
+
+CMakeFiles/main.dir/src/objLoader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/objLoader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anurag/Documents/Projects/GameDev/src/objLoader.cpp -o CMakeFiles/main.dir/src/objLoader.cpp.s
+
+CMakeFiles/main.dir/third/glad/src/glad.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/third/glad/src/glad.c.o: /home/anurag/Documents/Projects/GameDev/third/glad/src/glad.c
+CMakeFiles/main.dir/third/glad/src/glad.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/anurag/Documents/Projects/GameDev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main.dir/third/glad/src/glad.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/third/glad/src/glad.c.o -MF CMakeFiles/main.dir/third/glad/src/glad.c.o.d -o CMakeFiles/main.dir/third/glad/src/glad.c.o -c /home/anurag/Documents/Projects/GameDev/third/glad/src/glad.c
+
+CMakeFiles/main.dir/third/glad/src/glad.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/third/glad/src/glad.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/anurag/Documents/Projects/GameDev/third/glad/src/glad.c > CMakeFiles/main.dir/third/glad/src/glad.c.i
+
+CMakeFiles/main.dir/third/glad/src/glad.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/third/glad/src/glad.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/anurag/Documents/Projects/GameDev/third/glad/src/glad.c -o CMakeFiles/main.dir/third/glad/src/glad.c.s
+
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/src/main.cpp.o"
+"CMakeFiles/main.dir/src/main.cpp.o" \
+"CMakeFiles/main.dir/src/objLoader.cpp.o" \
+"CMakeFiles/main.dir/third/glad/src/glad.c.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-bin/main: CMakeFiles/main.dir/src/main.cpp.o
-bin/main: CMakeFiles/main.dir/build.make
-bin/main: _deps/sfml-build/lib/libsfml-graphics.a
-bin/main: _deps/sfml-build/lib/libsfml-window.a
-bin/main: /usr/lib/x86_64-linux-gnu/libXrandr.so
-bin/main: /usr/lib/x86_64-linux-gnu/libXcursor.so
-bin/main: /usr/lib/x86_64-linux-gnu/libXrender.so
-bin/main: /usr/lib/x86_64-linux-gnu/libXfixes.so
-bin/main: /usr/lib/x86_64-linux-gnu/libXi.so
-bin/main: /usr/lib/x86_64-linux-gnu/libXext.so
-bin/main: /usr/lib/x86_64-linux-gnu/libX11.so
-bin/main: _deps/sfml-build/lib/libsfml-system.a
-bin/main: /usr/lib/x86_64-linux-gnu/libGL.so
-bin/main: /usr/lib/x86_64-linux-gnu/libudev.so
-bin/main: /usr/lib/x86_64-linux-gnu/libfreetype.so
-bin/main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/anurag/Documents/Projects/GameDev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bin/main"
+main: CMakeFiles/main.dir/src/main.cpp.o
+main: CMakeFiles/main.dir/src/objLoader.cpp.o
+main: CMakeFiles/main.dir/third/glad/src/glad.c.o
+main: CMakeFiles/main.dir/build.make
+main: /usr/lib/x86_64-linux-gnu/libGL.so
+main: third/glfw/src/libglfw3.a
+main: third/vendored/SDL/libSDL3.a
+main: /home/anurag/Documents/Projects/GameDev/third/bullet3/build_cmake/local_install/lib/libBulletDynamics.a
+main: /home/anurag/Documents/Projects/GameDev/third/bullet3/build_cmake/local_install/lib/libBulletCollision.a
+main: /home/anurag/Documents/Projects/GameDev/third/bullet3/build_cmake/local_install/lib/libLinearMath.a
+main: /usr/lib/x86_64-linux-gnu/librt.a
+main: /usr/lib/x86_64-linux-gnu/libm.so
+main: CMakeFiles/main.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/anurag/Documents/Projects/GameDev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/main.dir/build: bin/main
+CMakeFiles/main.dir/build: main
 .PHONY : CMakeFiles/main.dir/build
 
 CMakeFiles/main.dir/clean:
