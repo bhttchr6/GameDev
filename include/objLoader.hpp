@@ -3,7 +3,9 @@
 #include <vector>
 #include <string>
 #include <../third/glm/glm.hpp>
-
+/*
+* struct to contain the 3D coordinates of a point
+*/
 struct point3D
 {
     float x, y, z;
