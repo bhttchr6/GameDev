@@ -147,10 +147,17 @@ int main()
         1, 2, 3   // second Triangle
     };
     */
+   ///////////////////////////////////////////////////////////////////////////////
+   /////////////////// USER DEFINED PARAMETER ///////////////////////////////////
+   
    // load OBJ file
    std::string filename = "../assets/shuttle.obj";
    // define whether scaling between -1 to 1 is required or not
    bool scaling = true;
+   bool showMesh = true;
+
+
+   //////////////////////////////////////////////////////////////////////////////////
    objLoader *objFile = new objLoader(filename);
    std::vector<glm::vec3> vertexCoordinates = objFile->getVertexCoordinates();
    std::vector<std::vector<int>> faces = objFile->getFaceIndices();
@@ -235,7 +242,11 @@ int main()
 
 
     // uncomment this call to draw in wireframe polygons.
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    if(showMesh)
+    {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    }
+    
 
     // render loop
     // -----------
