@@ -149,6 +149,8 @@ int main()
     */
    // load OBJ file
    std::string filename = "../assets/shuttle.obj";
+   // define whether scaling between -1 to 1 is required or not
+   bool scaling = true;
    objLoader *objFile = new objLoader(filename);
    std::vector<glm::vec3> vertexCoordinates = objFile->getVertexCoordinates();
    std::vector<std::vector<int>> faces = objFile->getFaceIndices();
@@ -168,18 +170,28 @@ int main()
    float vertices[3 * vertexCoordinates.size()];
    int indices[3 * faces.size()];
 
+   
+
    for (unsigned int i = 0; i < vertexCoordinates.size(); i++)
    {
        glm::vec3 coords = vertexCoordinates[i];
        
-       vertices[3 * i + 0] = coords.x;
-       vertices[3 * i + 1] = coords.y;
-       vertices[3 * i + 2] = coords.z;
+       if(!scaling)
+       {
+        vertices[3 * i + 0] = coords.x;
+        vertices[3 * i + 1] = coords.y;
+        vertices[3 * i + 2] = coords.z;
+       }
        
-       // Apply the scaling formula
+       
+       if(scaling)
+       {
+        // Apply the scaling formula
         vertices[3 * i + 0] = 2.0f * (coords.x - objBBox.minBox.x) / (objBBox.maxBox.x - objBBox.minBox.x) - 1.0f;
         vertices[3 * i + 1] = 2.0f * (coords.y - objBBox.minBox.y) / (objBBox.maxBox.y - objBBox.minBox.y) - 1.0f;
         vertices[3 * i + 2] = 2.0f * (coords.z - objBBox.minBox.z) / (objBBox.maxBox.z - objBBox.minBox.z) - 1.0f;
+       }
+       
         
    }
 
